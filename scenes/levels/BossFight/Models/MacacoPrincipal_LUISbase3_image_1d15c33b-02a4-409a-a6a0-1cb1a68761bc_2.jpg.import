@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://0v43v7nxby0g"
+path.s3tc="res://.godot/imported/MacacoPrincipal_LUISbase3_image_1d15c33b-02a4-409a-a6a0-1cb1a68761bc_2.jpg-175bacfc4cdb280563a54257c2a70f53.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "d0cd868a927e611105969d1068b7aaad"
+}
+
+[deps]
+
+source_file="res://scenes/levels/BossFight/Models/MacacoPrincipal_LUISbase3_image_1d15c33b-02a4-409a-a6a0-1cb1a68761bc_2.jpg"
+dest_files=["res://.godot/imported/MacacoPrincipal_LUISbase3_image_1d15c33b-02a4-409a-a6a0-1cb1a68761bc_2.jpg-175bacfc4cdb280563a54257c2a70f53.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://MacacoPrincipal_LUISbase3_image_1d15c33b-02a4-409a-a6a0-1cb1a68761bc_2.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

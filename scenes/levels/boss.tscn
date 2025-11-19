@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3gguxq43ipen"]
+
+[ext_resource type="PackedScene" uid="uid://q7cr6bsh2eyv" path="res://scenes/levels/BossFight/Models/bob.tscn" id="1_cjpch"]
+[ext_resource type="PackedScene" uid="uid://cqscwskr1upb7" path="res://scenes/levels/BossFight/enemy.tscn" id="2_ulbe8"]
+[ext_resource type="PackedScene" uid="uid://j18twf1sm2sh" path="res://scenes/levels/BossFight/Models/long_crate.glb" id="3_hpcug"]
+[ext_resource type="PackedScene" uid="uid://yolxra27hw3c" path="res://scenes/levels/BossFight/Models/fence_concrete-_15mb.glb" id="4_t2roj"]
+[ext_resource type="PackedScene" uid="uid://6unvg01niqjj" path="res://scenes/levels/BossFight/Models/low_poly_forest.glb" id="5_36axh"]
+[ext_resource type="Texture2D" uid="uid://bgs483mnsd00k" path="res://scenes/levels/BossFight/Images/Montana.png" id="6_fnjqm"]
+[ext_resource type="PackedScene" uid="uid://dd2qdkjy187y5" path="res://Resources/hud.tscn" id="7_umrqt"]
+[ext_resource type="MeshLibrary" uid="uid://h2q0d6puy6di" path="res://Resources/world-blocks/world-block-v1.tres" id="8_of0ii"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3eom7"]
+radius = 0.593656
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lnef8"]
+height = 3.67468
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bnu1"]
+size = Vector3(1, 10, 1)
+
+[node name="Boss" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.96348, 7.5)
+
+[node name="Bob" parent="." instance=ExtResource("1_cjpch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.457, 1, 0)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("wall_target_left", "wall_target_right") instance=ExtResource("2_ulbe8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.75, 1.5, 0)
+wall_target_left = NodePath("../WallTargetLeft")
+wall_target_right = NodePath("../WallTargetRight")
+
+[node name="HeadHitbox" type="Area3D" parent="Enemy"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy/HeadHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53073e-08, 2.40958, 2.18038)
+shape = SubResource("SphereShape3D_3eom7")
+
+[node name="AttackHitbox" type="Area3D" parent="Enemy"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy/AttackHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45989e-08, 1.92343, -0.562757)
+shape = SubResource("CapsuleShape3D_lnef8")
+
+[node name="WallL" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 5.54175, 0)
+collision_layer = 2
+collision_mask = 9
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallL"]
+shape = SubResource("BoxShape3D_0bnu1")
+
+[node name="Sketchfab_Scene2" parent="WallL" instance=ExtResource("3_hpcug")]
+transform = Transform3D(0.03, 0, 0, 0, -1.31134e-09, -0.04, 0, 0.03, -1.74846e-09, -0.914669, -1.17555, 0)
+
+[node name="WallR" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4.48918, 0)
+collision_layer = 2
+collision_mask = 9
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallR"]
+shape = SubResource("BoxShape3D_0bnu1")
+
+[node name="Sketchfab_Scene" parent="WallR" instance=ExtResource("4_t2roj")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -0.0363731, -4.759, 0)
+
+[node name="WallTargetLeft" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, 0)
+
+[node name="WallTargetRight" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, 0)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("5_36axh")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, -0.183996, -2.81831, -4.89948)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(110, 0, 0, 0, 110, 0, 0, 0, 110, 0, 46.004, -242.189)
+texture = ExtResource("6_fnjqm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, -0.253201, 0.828184, 0, 0.956305, 0.292372, -0.866025, -0.146186, 0.478152, 19.48, 31.6977, 0)
+light_energy = 1.55
+light_indirect_energy = 1.035
+light_volumetric_fog_energy = 0.86
+shadow_enabled = true
+sky_mode = 1
+
+[node name="HUD" parent="." instance=ExtResource("7_umrqt")]
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8757, -0.516682, -8.59714)
+mesh_library = ExtResource("8_of0ii")
+collision_layer = 2
+collision_mask = 13
+data = {
+"cells": PackedInt32Array(-65555, 0, 0, -65556, 0, 0, -65557, 0, 0, -65558, 0, 0, -65553, 0, 0, -65553, 65535, 0, -65558, 65531, 0, -65558, 65532, 0, -65558, 65533, 0, -65558, 65534, 0, -65558, 65535, 0, -65557, 65535, 0, 65518, 5, 3, 65518, 4, 3, 65517, 5, 3, 65517, 4, 3, 65517, 3, 3, 65518, 3, 3, 65518, 2, 3, 65517, 2, 3, 65517, 1, 3, 65517, 0, 3, 65517, 65535, 3, 65518, 65535, 3, 65518, 0, 3, 65518, 1, 3, 65516, 4, 3, 65516, 5, 3, 65516, 3, 3, 65516, 2, 3, 65516, 1, 3, 65516, 0, 3, 65515, 0, 3, 65515, 2, 3, 65515, 3, 3, 65515, 5, 3, 65515, 4, 3, 65519, 5, 3, 65519, 4, 3, 65519, 3, 3, 65519, 2, 3, 65519, 65535, 3, 65519, 0, 3, 65519, 1, 3, 65520, 65535, 3, 65520, 65534, 3, 65521, 65534, 3, 65521, 65533, 3, 65520, 65533, 3, 65519, 65533, 3, 65519, 65534, 3, 65520, 0, 3, 65521, 0, 3, 65521, 65535, 3, 65520, 1, 3, 65521, 2, 3, 65521, 3, 3, 65522, 3, 3, 65522, 2, 3, 65521, 4, 3, 65522, 1, 3, 65522, 0, 3, 65521, 1, 3, 65520, 3, 3, 65520, 4, 3, 65520, 2, 3, 65520, 5, 3, 65521, 5, 3, 65522, 5, 3, 65523, 5, 3, 65523, 4, 3, 65522, 4, 3, 65524, 4, 3, 65524, 5, 3, 65525, 5, 3, 65525, 4, 3, 65525, 3, 3, 65524, 3, 3, 65523, 3, 3, 65523, 2, 3, 65524, 2, 3, 65524, 1, 3, 65525, 1, 3, 65526, 1, 3, 65526, 0, 3, 65525, 0, 3, 65525, 2, 3, 65525, 65535, 3, 65525, 65534, 3, 65524, 65534, 3, 65524, 65535, 3, 65523, 0, 3, 65523, 1, 3, 65524, 0, 3, 65523, 65534, 3, 65522, 65534, 3, 65522, 65535, 3, 65523, 65533, 3, 65523, 65535, 3, 65526, 5, 3, 65526, 4, 3, 65526, 3, 3, 65527, 3, 3, 65527, 2, 3, 65527, 1, 3, 65527, 0, 3, 65526, 65535, 3, 65527, 65535, 3, 65527, 65534, 3, 65526, 65534, 3, 65526, 65533, 3, 65525, 65532, 3, 65525, 65531, 3, 65527, 4, 3, 65527, 5, 3, 65527, 6, 3, 65526, 6, 3, 65525, 6, 3, 65524, 6, 3, 65523, 6, 3, 65515, 6, 3, 65516, 6, 3, 65517, 6, 3, 65518, 6, 3, 65519, 6, 3, 65520, 6, 3, 65521, 6, 3, 65522, 6, 3)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)

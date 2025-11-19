@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://c53up8jjtf21q"]
+
+[ext_resource type="Script" uid="uid://cp58exdrupdt6" path="res://scripts/banana.gd" id="1_fsd0w"]
+[ext_resource type="ArrayMesh" uid="uid://cb1tudd8farbs" path="res://assets/banana/banana_new.res" id="2_q2k4p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xnt0o"]
+radius = 0.364307
+height = 1.42354
+
+[sub_resource type="Animation" id="Animation_3dn0g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fsd0w"]
+resource_name = "bounce"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.201047, 0.297893),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.39724, 0), Vector3(0, 1.02726, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0x4w"]
+_data = {
+&"RESET": SubResource("Animation_3dn0g"),
+&"bounce": SubResource("Animation_fsd0w")
+}
+
+[node name="Banana" type="Area3D"]
+collision_layer = 4
+script = ExtResource("1_fsd0w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.1913e-08, -0.272538, 0, 0.272538, -1.1913e-08, 0, 0, 0, 0.272538, 0, 0, 0)
+mesh = ExtResource("2_q2k4p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149836, 0, 0)
+shape = SubResource("CapsuleShape3D_xnt0o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s0x4w")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh4womwbo6kbt"]
+
+[ext_resource type="Script" uid="uid://cxl6jj2btac5n" path="res://scripts/menu_game_over.gd" id="1_56u80"]
+[ext_resource type="FontFile" uid="uid://81845xxeshc8" path="res://assets/fonts/KiriFont.ttf" id="1_ao813"]
+[ext_resource type="FontFile" uid="uid://cbn1vtwmn3rul" path="res://assets/fonts/FrancoisOne-Regular.ttf" id="2_56u80"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56u80"]
+bg_color = Color(0, 0, 0, 0)
+border_color = Color(0, 0, 0, 0)
+
+[node name="MenuGameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_56u80")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -26.0
+offset_top = -23.0
+offset_right = 1956.0
+offset_bottom = 1036.0
+color = Color(0.380392, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 263.0
+offset_right = 1493.0
+offset_bottom = 463.0
+theme_override_colors/font_color = Color(0.741176, 0, 0.0627451, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("1_ao813")
+theme_override_font_sizes/font_size = 134
+text = "GAME OVER!"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 817.0
+offset_top = 575.0
+offset_right = 1088.0
+offset_bottom = 686.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_56u80")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/focus = SubResource("StyleBoxFlat_56u80")
+text = "MENU"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

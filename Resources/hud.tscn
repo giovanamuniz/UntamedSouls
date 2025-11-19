@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd2qdkjy187y5"]
+
+[ext_resource type="Texture2D" uid="uid://dt76wqpewldp1" path="res://assets/images/banana.png" id="1_f5qh4"]
+[ext_resource type="Script" uid="uid://dksspms0x3uy2" path="res://scripts/hud.gd" id="1_gdp7d"]
+[ext_resource type="FontFile" uid="uid://cbn1vtwmn3rul" path="res://assets/fonts/FrancoisOne-Regular.ttf" id="2_4qmw6"]
+[ext_resource type="Texture2D" uid="uid://bh28kke8mn1of" path="res://assets/images/heart.png" id="4_nggog"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u37uf"]
+bg_color = Color(0, 0, 0, 0.419608)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="HUD" type="CanvasLayer"]
+follow_viewport_scale = 1.095
+script = ExtResource("1_gdp7d")
+metadata/_edit_horizontal_guides_ = [16.0]
+
+[node name="Panel3" type="Panel" parent="."]
+offset_left = 202.0
+offset_top = 23.0
+offset_right = 349.0
+offset_bottom = 75.0
+scale = Vector2(1.57333, 1.57333)
+theme_override_styles/panel = SubResource("StyleBoxFlat_u37uf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 222.0
+offset_top = 40.0
+offset_right = 262.0
+offset_bottom = 74.0
+scale = Vector2(1.48, 1.48)
+texture = ExtResource("1_f5qh4")
+expand_mode = 1
+
+[node name="BananasLabel" type="Label" parent="."]
+offset_left = 347.0
+offset_top = 23.0
+offset_right = 391.0
+offset_bottom = 74.0
+scale = Vector2(1.62838, 1.61833)
+theme_override_colors/font_color = Color(0.956863, 0.792157, 0.286275, 1)
+theme_override_fonts/font = ExtResource("2_4qmw6")
+theme_override_font_sizes/font_size = 35
+text = "##"
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 1527.0
+offset_top = 23.0
+offset_right = 1674.0
+offset_bottom = 75.0
+scale = Vector2(1.57333, 1.57333)
+theme_override_styles/panel = SubResource("StyleBoxFlat_u37uf")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 305.0
+offset_top = 35.0
+offset_right = 348.0
+offset_bottom = 78.0
+scale = Vector2(1.57333, 1.57333)
+theme_override_colors/font_color = Color(0.898039, 0.745098, 0.278431, 1)
+theme_override_fonts/font = ExtResource("2_4qmw6")
+theme_override_font_sizes/font_size = 28
+text = "X"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 1541.0
+offset_top = 38.0
+offset_right = 1581.0
+offset_bottom = 72.0
+scale = Vector2(1.57333, 1.57333)
+texture = ExtResource("4_nggog")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1626.0
+offset_top = 33.0
+offset_right = 1669.0
+offset_bottom = 76.0
+scale = Vector2(1.57333, 1.57333)
+theme_override_colors/font_color = Color(0.901961, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4qmw6")
+theme_override_font_sizes/font_size = 28
+text = "X"
+
+[node name="VidasLabel" type="Label" parent="."]
+offset_left = 1664.0
+offset_top = 22.0
+offset_right = 1708.0
+offset_bottom = 73.0
+scale = Vector2(1.57333, 1.57333)
+theme_override_colors/font_color = Color(0.901961, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4qmw6")
+theme_override_font_sizes/font_size = 35
+text = "##"
