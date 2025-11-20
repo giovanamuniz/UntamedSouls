@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd2qdkjy187y5"]
+[gd_scene load_steps=3 format=3 uid="uid://05cw0uko7nc5"]
 
 [ext_resource type="Script" uid="uid://dksspms0x3uy2" path="res://scripts/hud.gd" id="1_gdp7d"]
 [ext_resource type="Texture2D" uid="uid://c4cr2urnmex5k" path="res://assets/images/coracao.png" id="4_nggog"]

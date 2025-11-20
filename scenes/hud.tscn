@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd2qdkjy187y5"]
+
+[ext_resource type="Script" uid="uid://dksspms0x3uy2" path="res://scripts/hud.gd" id="1_gdp7d"]
+[ext_resource type="Texture2D" uid="uid://c4cr2urnmex5k" path="res://assets/images/coracao.png" id="4_nggog"]
+
+[node name="HUD" type="CanvasLayer"]
+follow_viewport_scale = 1.095
+script = ExtResource("1_gdp7d")
+metadata/_edit_horizontal_guides_ = [16.0]
+
+[node name="Heart1" type="TextureRect" parent="."]
+offset_left = 1344.0
+offset_top = 38.0
+offset_right = 1440.0
+offset_bottom = 128.0
+scale = Vector2(1.12899, 1.12899)
+texture = ExtResource("4_nggog")
+expand_mode = 1
+
+[node name="Heart2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(76, 70)
+offset_left = 1452.0
+offset_top = 38.0
+offset_right = 1548.0
+offset_bottom = 128.0
+scale = Vector2(1.12899, 1.12899)
+texture = ExtResource("4_nggog")
+expand_mode = 1
+
+[node name="Heart3" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(76, 70)
+offset_left = 1560.0
+offset_top = 38.0
+offset_right = 1656.0
+offset_bottom = 128.0
+scale = Vector2(1.12899, 1.12899)
+texture = ExtResource("4_nggog")
+expand_mode = 1

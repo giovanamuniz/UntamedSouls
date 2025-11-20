@@ -7,12 +7,11 @@ var gravity: float = 9.8
 @export var turns_around_at_edges := true
 var turning := false
 var xform: Transform3D
+@onready var raycast: RayCast3D = $RayCast3D
 
 func _physics_process(delta: float) -> void:
 	
 	velocity.x = speed * direction.x
-	velocity.y = speed * direction.y
-	
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -46,6 +45,23 @@ func _on_sides_checker_body_entered(body: Node3D) -> void:
 	SoundManager.play_enemy_sound()
 	Global.take_damage()
 
+	var floor_normal: Vector3 = Vector3.UP
+	if is_on_floor() and raycast and raycast.is_colliding():
+		floor_normal = raycast.get_collision_normal()
+		align_with_floor(floor_normal)
+	else:
+		align_with_floor(Vector3.UP)
+
+func align_with_floor(floor_normal: Vector3) -> void:
+
+	xform = global_transform
+
+	xform.basis.y = floor_normal
+
+	xform.basis.x = -xform.basis.z.cross(floor_normal)
+	xform.basis = xform.basis.orthonormalized()
+
+	global_transform = global_transform.interpolate_with(xform, 0.15)
 
 	
 

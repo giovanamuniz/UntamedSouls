@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=4 uid="uid://c5r2uniamt157"]
 
-[ext_resource type="Script" uid="uid://dy5h6pfj62bpl" path="res://Resources/platform_8x_2.gd" id="1_kns2e"]
-[ext_resource type="Texture2D" uid="uid://bq32ugt4oevl2" path="res://Resources/world-blocks/world-blocks-v1_Grass001_1K-JPG_NormalGL.jpg" id="1_qe8cf"]
-[ext_resource type="Texture2D" uid="uid://ckml8701w216n" path="res://Resources/world-blocks/world-blocks-v1_Grass001_1K-JPG_Roughness.png" id="2_kns2e"]
+[ext_resource type="Script" uid="uid://dy5h6pfj62bpl" path="res://resources/plataforma/platform_8x_2.gd" id="1_kns2e"]
+[ext_resource type="Texture2D" uid="uid://bq32ugt4oevl2" path="res://resources/world-blocks/world-blocks-v1_Grass001_1K-JPG_NormalGL.jpg" id="1_qe8cf"]
+[ext_resource type="Texture2D" uid="uid://ckml8701w216n" path="res://resources/world-blocks/world-blocks-v1_Grass001_1K-JPG_Roughness.png" id="2_kns2e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u52ke"]
 resource_name = "Block-Material"

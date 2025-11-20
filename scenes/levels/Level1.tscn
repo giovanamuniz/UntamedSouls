@@ -4,7 +4,6 @@
 [ext_resource type="MeshLibrary" uid="uid://h2q0d6puy6di" path="res://resources/world-blocks/world-block-v1.tres" id="2_m00rq"]
 [ext_resource type="PackedScene" uid="uid://djywd1q2pgadj" path="res://scenes/player/player.tscn" id="3_brv20"]
 [ext_resource type="PackedScene" uid="uid://c53up8jjtf21q" path="res://assets/banana/banana.tscn" id="4_7d7pp"]
-[ext_resource type="PackedScene" uid="uid://dd2qdkjy187y5" path="res://resources/hud.tscn" id="5_e5nfq"]
 [ext_resource type="PackedScene" uid="uid://dwyia7j1qdr46" path="res://scenes/enemies/enemy.tscn" id="6_lha2r"]
 [ext_resource type="PackedScene" uid="uid://c5r2uniamt157" path="res://resources/plataforma/platform_8x_2.tscn" id="7_m00rq"]
 [ext_resource type="Texture2D" uid="uid://d26vstom5pos0" path="res://modelos/modular_chain_link_fence_set_0.png" id="8_e5nfq"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://3173ql4b4k5c" path="res://modelos/modular_chain_link_fence_set_2.png" id="10_6owa4"]
 [ext_resource type="PackedScene" uid="uid://by3lllv6efo00" path="res://resources/box.tscn" id="11_lha2r"]
 [ext_resource type="Texture2D" uid="uid://8m7682x6vnvc" path="res://modelos/3_pine_bushes_0.png" id="12_6owa4"]
+[ext_resource type="PackedScene" uid="uid://dd2qdkjy187y5" path="res://scenes/hud.tscn" id="13_kypp1"]
 [ext_resource type="Texture2D" uid="uid://bgs483mnsd00k" path="res://scenes/levels/BossFight/Images/Montana.png" id="13_n5pya"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
@@ -146,7 +146,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, -2, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_brv20")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -33.0432, -0.155414, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -33.0432, -0.470389, 0)
 
 [node name="Bananas" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07577, 0, -2.25672)
@@ -160,8 +160,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.216, 4.28249, 2.09215)
 [node name="Banana5" parent="Bananas" instance=ExtResource("4_7d7pp")]
 transform = Transform3D(-0.954792, 0, 0.297275, 0, 1, 0, -0.297275, 0, -0.954792, 96.2946, 9.30046, 2.09215)
 
-[node name="HUD" parent="." instance=ExtResource("5_e5nfq")]
-
 [node name="Fallzone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8562, -18.0922, 0)
 collision_layer = 16
@@ -174,18 +172,18 @@ shape = SubResource("BoxShape3D_dn5ey")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8562, 0, 0)
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("6_lha2r")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.075, -4.33095, -0.101344)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 23.79, -4.5, -0.101)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("6_lha2r")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 86.9726, 5.21489, -0.101344)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 86.9726, 5.44864, -0.101344)
 
 [node name="MovingPlatforms" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8562, 0, 0)
 
 [node name="Platform8x2" parent="MovingPlatforms" instance=ExtResource("7_m00rq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.733, -1.5, -2.6)
-position_a = Vector3(32.749, -1.5, -2.6)
-position_b = Vector3(48.733, -1.5, -2.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7, -1.5, -2.6)
+position_a = Vector3(32.8, -1.5, -2.6)
+position_b = Vector3(48.7, -1.5, -2.6)
 
 [node name="Fence1" type="Node3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.186, 0, 0.399881)
@@ -404,6 +402,8 @@ sky_mode = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.467, 6.25886, -1.28076)
 shape = SubResource("BoxShape3D_n5pya")
+
+[node name="HUD" parent="." instance=ExtResource("13_kypp1")]
 
 [connection signal="body_entered" from="Fallzone" to="Player" method="_on_fallzone_body_entered"]
 [connection signal="body_entered" from="SwitchLevel" to="Player" method="_on_switch_level_body_entered"]

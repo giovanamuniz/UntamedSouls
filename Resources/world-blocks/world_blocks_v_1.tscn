@@ -1,5 +1,21 @@
 [gd_scene load_steps=2 format=3 uid="uid://ri03t7ptb4o"]
 
-[ext_resource type="PackedScene" uid="uid://3kc8upqcddua" path="res://Resources/world-blocks/world-blocks-v1.glb" id="1_6ppkg"]
+[ext_resource type="PackedScene" uid="uid://3kc8upqcddua" path="res://resources/world-blocks/world-blocks-v1.glb" id="1_6ppkg"]
 
 [node name="world-blocks-v1" instance=ExtResource("1_6ppkg")]
+
+[node name="Block" parent="Block" index="0"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="RampTop" parent="RampTop" index="0"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="RampBottom" parent="RampBottom" index="0"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="BlockShort" parent="BlockShort" index="0"]
+collision_layer = 2
+collision_mask = 13
