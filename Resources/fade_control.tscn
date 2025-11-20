@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1xycr6ca67b1"]
+[gd_scene load_steps=6 format=3 uid="uid://moncl3fjib5t"]
 
-[ext_resource type="Script" uid="uid://vighgag10isf" path="res://Resources/fade_control.gd" id="1_n4i5k"]
+[ext_resource type="Script" uid="uid://vighgag10isf" path="res://resources/transicao/fade_control.gd" id="1_n4i5k"]
 
 [sub_resource type="Animation" id="Animation_pg6ny"]
 length = 0.001

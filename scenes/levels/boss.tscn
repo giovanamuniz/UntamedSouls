@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://yolxra27hw3c" path="res://scenes/levels/BossFight/Models/fence_concrete-_15mb.glb" id="4_t2roj"]
 [ext_resource type="PackedScene" uid="uid://6unvg01niqjj" path="res://scenes/levels/BossFight/Models/low_poly_forest.glb" id="5_36axh"]
 [ext_resource type="Texture2D" uid="uid://bgs483mnsd00k" path="res://scenes/levels/BossFight/Images/Montana.png" id="6_fnjqm"]
-[ext_resource type="PackedScene" uid="uid://dd2qdkjy187y5" path="res://Resources/hud.tscn" id="7_umrqt"]
-[ext_resource type="MeshLibrary" uid="uid://h2q0d6puy6di" path="res://Resources/world-blocks/world-block-v1.tres" id="8_of0ii"]
+[ext_resource type="PackedScene" uid="uid://dd2qdkjy187y5" path="res://resources/hud.tscn" id="7_umrqt"]
+[ext_resource type="MeshLibrary" uid="uid://h2q0d6puy6di" path="res://resources/world-blocks/world-block-v1.tres" id="8_of0ii"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3eom7"]
 radius = 0.593656

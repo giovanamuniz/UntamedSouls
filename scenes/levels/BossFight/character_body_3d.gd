@@ -7,15 +7,10 @@ extends CharacterBody3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var armature: Node3D = $Armature
 
-# Vida do jogador
-var max_hp: int = 1
-var current_hp: int = 1
-
 var xform: Transform3D
 var velocity_x: float = 0.0
 
-func _ready():
-	current_hp = max_hp
+
 	
 func _physics_process(delta: float) -> void:
 
@@ -87,28 +82,12 @@ func check_enemy_collision():
 				return  # Só processa uma colisão por frame
 
 			# --- Jogador colidiu de lado → leva dano ---
-			take_damage(1)
+			Global.take_damage()
 			# Knockback simples
 			velocity.x = sign(global_position.x - collider.global_position.x) * 6
 			velocity.y = 6
-			print("Jogador levou dano do boss! HP restante:", current_hp)
+			print("Jogador levou dano do boss! HP restante:", Global.current_health)
 			return
-
-
-func take_damage(amount: int = 1):
-	current_hp -= amount
-	if current_hp <= 0:
-		current_hp = 0
-		die()
-	else:
-		get_tree().reload_current_scene()
-		print("Jogador levou dano! HP restante:", current_hp)
-
 
 func bounce():
 	velocity.y = jump_force * 0.7
-
-
-func die():
-	print("Jogador morreu!")
-	get_tree().change_scene_to_file("res://scenes/menus/menu_game_over.tscn")

@@ -80,16 +80,7 @@ func align_with_floor(floor_normal: Vector3) -> void:
 
 func _on_fallzone_body_entered(body: Node3D) -> void:
 	SoundManager.play_fall_sound()
-	body.perder_vida()
-
-func perder_vida():
-	Global.vidas -= 1
-
-	if Global.vidas > 0:
-		get_tree().reload_current_scene()
-	else:
-		Global.vidas = 3
-		get_tree().change_scene_to_file("res://scenes/menus/menu_game_over.tscn")
+	Global.take_damage()
 
 
 func bounce():

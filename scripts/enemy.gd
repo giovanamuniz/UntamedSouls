@@ -44,8 +44,8 @@ func turn_around():
 
 func _on_sides_checker_body_entered(body: Node3D) -> void:
 	SoundManager.play_enemy_sound()
-	if body.has_method("perder_vida"):
-		body.perder_vida()
+	Global.take_damage()
+
 
 	
 

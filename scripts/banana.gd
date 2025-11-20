@@ -14,19 +14,13 @@ func _process(delta: float) -> void:
 	
 func _on_body_entered(body):
 	if body.name == "Player": 
-		Global.bananas += 1
-		
-		SoundManager.play_banana_sound()
+		Global.add_health(1)
 
-		var hud_node = get_tree().root.get_node("Level1/HUD")
-		if hud_node:
-			hud_node.get_node("BananasLabel").text = str(Global.bananas)
+		SoundManager.play_banana_sound()
 
 		set_collision_layer_value(3, false)
 		set_collision_mask_value(1, false)
 		$AnimationPlayer.play("bounce")
-
-
 
 func _on_animation_player_animation_finished(StringName) -> void:
 	queue_free()

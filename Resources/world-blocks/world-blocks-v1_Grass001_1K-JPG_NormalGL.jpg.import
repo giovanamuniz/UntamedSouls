@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq32ugt4oevl2"
-path.s3tc="res://.godot/imported/world-blocks-v1_Grass001_1K-JPG_NormalGL.jpg-73de69e9b1f95e3f2b212daebc68d78b.s3tc.ctex"
+path.s3tc="res://.godot/imported/world-blocks-v1_Grass001_1K-JPG_NormalGL.jpg-8cb21c07ad01a6adb8b24a0526809159.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Resources/world-blocks/world-blocks-v1_Grass001_1K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/world-blocks-v1_Grass001_1K-JPG_NormalGL.jpg-73de69e9b1f95e3f2b212daebc68d78b.s3tc.ctex"]
+source_file="res://resources/world-blocks/world-blocks-v1_Grass001_1K-JPG_NormalGL.jpg"
+dest_files=["res://.godot/imported/world-blocks-v1_Grass001_1K-JPG_NormalGL.jpg-8cb21c07ad01a6adb8b24a0526809159.s3tc.ctex"]
 
 [params]
 

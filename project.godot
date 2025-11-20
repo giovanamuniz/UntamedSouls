@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-FadeControl="*res://Resources/fade_control.tscn"
-SoundManager="*res://Resources/sound_manager.tscn"
+FadeControl="*res://resources/transicao/fade_control.tscn"
+SoundManager="*res://resources/sound_manager.tscn"
 Global="*res://scripts/global.gd"
 
 [input]

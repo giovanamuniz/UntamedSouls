@@ -121,8 +121,7 @@ func _on_attack_hitbox_body_entered(body: Node) -> void:
 		return
 
 	# Causa dano ao jogador
-	if body.has_method("take_damage"):
-		body.take_damage(1)
+	Global.take_damage()
 
 	# Aplica pequeno knockback
 	if body.has_method("apply_knockback"):
